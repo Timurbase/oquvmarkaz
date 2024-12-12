@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narxlar</title>
+    <link rel="stylesheet" href="{% static 'asosiy/style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">O'quv Markazi</div>
+        <div class="links">
+            <a href="{% url 'bosh_sahifa' %}">Bosh sahifa</a>
+            <a href="{% url 'kurslar' %}">Kurslar</a>
+            <a href="{% url 'narxlar' %}">Narxlar</a>
+            <a href="{% url 'biz_haqimizda' %}">Biz haqimizda</a>
+            <a href="{% url 'oyinlar' %}">Qiziqarli o‘yinlar</a>
+        </div>
+    </nav>
+    <h1>Narxlar</h1>
+    <p>Bu sahifada o‘quv markazining narxlari haqida ma’lumot olishingiz mumkin.</p>
+</body>
+</html>

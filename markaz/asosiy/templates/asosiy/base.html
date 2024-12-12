@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}O'quv markazi{% endblock %}</title>
+    <link rel="stylesheet" href="static/asosiy/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">O'quv Markazi</div>
+        <div class="links">
+            <a href="{% url 'bosh_sahifa' %}">Bosh sahifa</a>
+            <a href="{% url 'kurslar' %}">Kurslar</a>
+            <a href="{% url 'narxlar' %}">Narxlar</a>
+            <a href="{% url 'biz_haqimizda' %}">Biz haqimizda</a>
+            <a href="{% url 'oyinlar' %}">Qiziqarli o‘yinlar</a>
+        </div>
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

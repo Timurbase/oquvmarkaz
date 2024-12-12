@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ro‘yxatdan o‘tish</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4caf50, #81c784);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .signup-container {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4caf50;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        form {
+            text-align: left;
+        }
+
+        label {
+            font-weight: bold;
+            color: #4caf50;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .errorlist {
+            margin: 10px 0;
+            color: #f44336;
+            font-size: 0.9rem;
+        }
+
+        button {
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #43a047;
+        }
+
+        .helptext {
+            color: #757575;
+            font-size: 0.85rem;
+        }
+
+        .success-message {
+            margin-top: 15px;
+            color: #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h1>Ro‘yxatdan o‘tish</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Ro‘yxatdan o‘tish</button>
+        </form>
+        <p class="success-message">{% if success_message %}{{ success_message }}{% endif %}</p>
+    </div>
+</body>
+</html>

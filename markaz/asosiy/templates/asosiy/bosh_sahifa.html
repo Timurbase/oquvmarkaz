@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online O'quv Markazi</title>
+    <meta name="description" content="O'quv markazining rasmiy sayti. Kurslar, narxlar, yangiliklar va qiziqarli o'yinlar.">
+    <meta name="keywords" content="kurslar, o‘quv markazi, narxlar, yangiliklar, o'yinlar">
+    <link rel="stylesheet" href="{% static 'asosiy/style.css' %}">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #FFEFC5;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #FFF;
+            border-bottom: 2px solid #FFCC00;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            color: #FF6F00;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-size: 1rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #FF6F00;
+            transform: scale(1.1);
+        }
+
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px;
+            background-color: #DFF6FF;
+        }
+
+        .hero-text {
+            max-width: 50%;
+        }
+
+        .hero-text h2 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .hero-text p {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .hero img {
+            max-width: 40%;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button {
+            margin-top: 20px;
+            background-color: #FF6F00;
+            color: #FFF;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 25px;
+        }
+
+        .cta-button:hover {
+            background-color: #FF3B00;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .feature-card {
+            background-color: #FFF;
+            border: 1px solid #DDD;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card h3 {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .feature-card p {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        footer {
+            background-color: #FFF;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            border-top: 2px solid #FFCC00;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>O'quv Markazi</h1>
+        <nav>
+            <a href="{% url 'bosh_sahifa' %}">Bosh sahifa</a>
+            <a href="{% url 'kurslar' %}">Kurslar</a>
+            <a href="{% url 'narxlar' %}">Narxlar</a>
+            <a href="{% url 'biz_haqimizda' %}">Biz haqimizda</a>
+            <a href="{% url 'oyinlar' %}">Qiziqarli o‘yinlar</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}">Chiqish</a>
+            {% else %}
+                <a href="{% url 'login' %}">Kirish</a>
+                <a href="{% url 'signup' %}">Ro‘yxatdan o‘tish</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h2>Bolalaringizning ijodkorligini oching!</h2>
+            <p>Bizning o‘quv markazimizda qiziqarli va foydali o‘yinlar orqali bilim oling!</p>
+
+        </div>
+        <img src="{% static 'asosiy/images/bolalar.jpg' %}" alt="Bolalar uchun rasm">
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <img src="{% static 'asosiy/images/kreativ_kurslar.jpg' %}" alt="Kreativ kurslar">
+            <h3>Kreativ Kurslar</h3>
+            <p>Farzandingiz ijodini rivojlantiring.</p>
+        </div>
+        <div class="feature-card">
+            <img src="{% static 'asosiy/images/interaktiv_oyinlar.jpg' %}" alt="Interaktiv o'yinlar">
+            <h3>Interaktiv O'yinlar</h3>
+            <p>Bilim va zavq bir joyda!</p>
+        </div>
+        <div class="feature-card">
+            <img src="{% static 'asosiy/images/oquv_vositalari.jpg' %}" alt="O'quv vositalari">
+            <h3>O'quv Vositalari</h3>
+            <p>Bolalaringizning bilimini oshirish uchun.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 O'quv Markazi. Barcha huquqlar himoyalangan.</p>
+    </footer>
+</body>
+</html>

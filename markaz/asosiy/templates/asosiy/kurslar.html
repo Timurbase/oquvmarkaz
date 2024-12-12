@@ -1,0 +1,37 @@
+<!-- kurslar.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurslar</title>
+    <link rel="stylesheet" href="{% static 'asosiy/style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">O'quv Markazi</div>
+        <div class="links">
+            <a href="{% url 'bosh_sahifa' %}">Bosh sahifa</a>
+            <a href="{% url 'kurslar' %}">Kurslar</a>
+            <a href="{% url 'narxlar' %}">Narxlar</a>
+            <a href="{% url 'biz_haqimizda' %}">Biz haqimizda</a>
+            <a href="{% url 'oyinlar' %}">Qiziqarli o‘yinlar</a>
+        </div>
+    </nav>
+
+    <h1>Kurslar</h1>
+    <div class="kurslar">
+        {% for kurs in kurslar %}
+            <div class="kurs">
+                <h2>{{ kurs.nomi }}</h2>
+                <p>{{ kurs.tarif }}</p>
+                <p><strong>Narxi:</strong> {{ kurs.narxi }} UZS</p>
+                <p><strong>Davomiyligi:</strong> {{ kurs.davomiyligi }} kun</p>
+            </div>
+        {% empty %}
+            <p>Hozirda kurslar mavjud emas.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

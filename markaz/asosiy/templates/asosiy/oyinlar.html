@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qiziqarli o‘yinlar</title>
+    <style type="text/css">
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script type="text/javascript" src="{% static 'oyin/SCORM_API_wrapper.js' %}"></script>
+</head>
+<body>
+    <div style="width:100%;height:100%;overflow:hidden">
+        <iframe id="frame" src="{% static 'oyin/index.html' %}" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+</body>
+</html>
